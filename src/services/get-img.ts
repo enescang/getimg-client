@@ -1,9 +1,11 @@
 import { Models } from '../models/models';
-import { BaseConfig } from './get-img.types';
+import { BaseConfig, ListAllModelsParams, ListAllModelsResponse, RetrieveModelParams, RetrieveModelResponse } from './get-img.types';
 import { HttpClient } from './http-client';
 
 export class GetimgService {
   private baseConfig: BaseConfig;
+  private httpClient: HttpClient;
+
   models: Models;
 
   constructor(params: Partial<BaseConfig>) {
@@ -25,7 +27,18 @@ export class GetimgService {
       const httpClient = new HttpClient(this.baseConfig.api, {
         Authorization: `Bearer ${this.baseConfig.key}`,
       });
+      this.httpClient = httpClient;
       this.models = new Models(httpClient);
     }
+  }
+
+  listAllModel(params:ListAllModelsParams){
+    const path = `/models`;
+    return this.httpClient.get<ListAllModelsResponse>(path, params);
+  }
+
+  retrieveModel(params:RetrieveModelParams) {
+    const path = `/models/${params.id}`;
+    return this.httpClient.get<RetrieveModelResponse>(path);
   }
 }
