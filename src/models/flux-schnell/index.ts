@@ -1,7 +1,6 @@
 import { HttpClient } from "../../services/http-client";
-import { HttpClientResponseType } from "../../services/http-client.types";
-import { BaseModelParams, IBaseModel } from "../model.types";
-import { FluxSchnellTextToImageParams, IFluxSchnell } from "./flux-model.types";
+import { IBaseModel } from "../model.types";
+import { FluxSchnellTextToImageParams, IFluxSchnell } from "./model.types";
 
 export class FluxSchnell implements IBaseModel, IFluxSchnell {
   constructor(private readonly httpClient: HttpClient) {
