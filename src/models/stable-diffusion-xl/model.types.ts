@@ -37,7 +37,7 @@ export type StableDiffusionXLImageToImageParams = BaseModelParams & {
 };
 
 export type StableDiffusionXLInpaintingParams = BaseModelParams & {
-  model?: string; 
+  model?: string;
   negative_prompt?: string;
   prompt_2?: string;
   negative_prompt_2?: string;
@@ -67,7 +67,7 @@ export type StableDiffusionXLIpAdapterParams = BaseModelParams & {
   prompt_2?: string;
   negative_prompt_2?: string;
   /**
-   * Base64 encoded image used as a reference for the adapter. 
+   * Base64 encoded image used as a reference for the adapter.
    * With ip-adapter pipeline image aspect ratio does not need to match the output aspect ratio.
    * Maximum size in each dimension is 1536px.
    */

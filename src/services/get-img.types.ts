@@ -4,7 +4,14 @@ export type BaseConfig = {
 };
 
 // #region List all models and retrieve a model types
-type ModelPipelines = 'text-to-image' | 'image-to-image' | 'controlnet' | 'inpaint' | 'instruct' | 'upscale' | 'face-fix';
+type ModelPipelines =
+  | 'text-to-image'
+  | 'image-to-image'
+  | 'controlnet'
+  | 'inpaint'
+  | 'instruct'
+  | 'upscale'
+  | 'face-fix';
 export type ListAllModelsParams = {
   family?: 'stable-diffusion' | 'enhancements';
   pipeline?: ModelPipelines;
@@ -12,7 +19,7 @@ export type ListAllModelsParams = {
 
 export type RetrieveModelParams = {
   id: string;
-}
+};
 
 export type RetrieveModelResponse = {
   id: string;

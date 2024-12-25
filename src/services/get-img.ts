@@ -1,5 +1,11 @@
 import { Models } from '../models/models';
-import { BaseConfig, ListAllModelsParams, ListAllModelsResponse, RetrieveModelParams, RetrieveModelResponse } from './get-img.types';
+import {
+  BaseConfig,
+  ListAllModelsParams,
+  ListAllModelsResponse,
+  RetrieveModelParams,
+  RetrieveModelResponse,
+} from './get-img.types';
 import { HttpClient } from './http-client';
 
 export class GetimgService {
@@ -32,12 +38,12 @@ export class GetimgService {
     }
   }
 
-  listAllModel(params:ListAllModelsParams){
+  listAllModel(params: ListAllModelsParams) {
     const path = `/models`;
     return this.httpClient.get<ListAllModelsResponse>(path, params);
   }
 
-  retrieveModel(params:RetrieveModelParams) {
+  retrieveModel(params: RetrieveModelParams) {
     const path = `/models/${params.id}`;
     return this.httpClient.get<RetrieveModelResponse>(path);
   }

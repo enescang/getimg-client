@@ -1,5 +1,5 @@
-import { HttpClientResponseType } from "../../services/http-client.types";
-import { BaseModelParams } from "../model.types";
+import { HttpClientResponseType } from '../../services/http-client.types';
+import { BaseModelParams } from '../model.types';
 
 export type FluxSchnellTextToImageParams = BaseModelParams & {
   width?: number;

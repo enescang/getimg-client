@@ -1,6 +1,10 @@
-import { HttpClient } from "../../services/http-client";
-import { IBaseModel } from "../model.types";
-import { IEssentialV2, EssentialV2TextToImageParams, EssentialV2TextToImageResponse } from "./model.types";
+import { HttpClient } from '../../services/http-client';
+import { IBaseModel } from '../model.types';
+import {
+  IEssentialV2,
+  EssentialV2TextToImageParams,
+  EssentialV2TextToImageResponse,
+} from './model.types';
 
 export class EssentialV2 implements IBaseModel, IEssentialV2 {
   constructor(private readonly httpClient: HttpClient) {

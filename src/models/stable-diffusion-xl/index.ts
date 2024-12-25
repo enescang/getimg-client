@@ -33,7 +33,7 @@ export class StableDiffusionXL implements IBaseModel, IStableDiffusionXL {
     return this.httpClient.post<StableDiffusionXLGeneralResponse>(path, params);
   }
 
-  ipAdapter(params:StableDiffusionXLIpAdapterParams) {
+  ipAdapter(params: StableDiffusionXLIpAdapterParams) {
     const path = `${this.getModelName()}/ip-adapter`;
     return this.httpClient.post<StableDiffusionXLGeneralResponse>(path, params);
   }

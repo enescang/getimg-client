@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "format:ts:prettier": "prettier --write src/**/*.ts"
+    "format:ts:prettier": "prettier --write src/**"
   },
   "keywords": [],
   "author": "",
