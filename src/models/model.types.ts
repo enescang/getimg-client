@@ -7,3 +7,5 @@ export type BaseModelParams = {
 export interface IBaseModel {
   getModelName: () => string;
 }
+
+export type ImageOrUrl = { url?: string } | { image?: string };
