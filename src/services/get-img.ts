@@ -1,4 +1,4 @@
-import { Models } from '../models/models';
+import { Models } from '../models';
 import {
   BaseConfig,
   ListAllModelsParams,
