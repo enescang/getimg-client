@@ -1,4 +1,5 @@
 import { HttpClient } from '../services/http-client';
+import { Enhancements } from './enhancements';
 import { EssentialV2 } from './essential-v2';
 import { FluxSchnell } from './flux-schnell';
 import { LatentConsistency } from './latent-consistency';
@@ -11,6 +12,7 @@ export class Models {
   private readonly stableDiffusionXlModel: StableDiffusionXL;
   private readonly stableDiffusionModel: StableDiffusion;
   private readonly latentConsistencyModel: LatentConsistency;
+  private readonly enhancementsModel: Enhancements;
 
   constructor(private readonly httpClient: HttpClient) {
     this.fluxSchnellModel = new FluxSchnell(httpClient);
@@ -18,6 +20,7 @@ export class Models {
     this.stableDiffusionXlModel = new StableDiffusionXL(httpClient);
     this.stableDiffusionModel = new StableDiffusion(httpClient);
     this.latentConsistencyModel = new LatentConsistency(httpClient);
+    this.enhancementsModel = new Enhancements(httpClient);
   }
 
   get fluxSchnell() {
@@ -38,5 +41,9 @@ export class Models {
 
   get latentConsistency() {
     return this.latentConsistencyModel;
+  }
+
+  get enhancements() {
+    return this.enhancementsModel;
   }
 }
