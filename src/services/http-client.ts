@@ -14,7 +14,8 @@ export class HttpClient {
       return { data: response.data, error: null };
     } catch (error) {
       const axiosError = error as AxiosError;
-      return { data: null, error: axiosError?.response?.data };
+      const errorResponse = this.handleErrorResponse(axiosError);
+      return { data: null, error: errorResponse };
     }
   }
 
@@ -24,7 +25,16 @@ export class HttpClient {
       return response.data;
     } catch (error) {
       const axiosError = error as AxiosError;
-      return { data: null, error: axiosError?.response?.['data'] };
+      const errorResponse = this.handleErrorResponse(axiosError);
+      return { data: null, error: errorResponse };
     }
+  }
+
+  private handleErrorResponse(data:AxiosError){
+    const responseData = data?.response?.data as any;
+    if(responseData?.error){
+      return responseData?.error;
+    }
+    return responseData;
   }
 }

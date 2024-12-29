@@ -12,11 +12,13 @@ import { HttpClient } from './http-client';
 export class GetimgService {
   private baseConfig: BaseConfig;
   private httpClient: HttpClient;
+  private isInitialized = false;
 
-  models: Models;
-  account: Account;
+  _models: Models;
+  _account: Account;
 
   constructor(params: Partial<BaseConfig>) {
+    this.baseConfig = {} as BaseConfig;
     this.initializeModels(params);
   }
 
@@ -35,10 +37,25 @@ export class GetimgService {
       const httpClient = new HttpClient(this.baseConfig.api, {
         Authorization: `Bearer ${this.baseConfig.key}`,
       });
+      this.isInitialized = true;
       this.httpClient = httpClient;
-      this.models = new Models(httpClient);
-      this.account = new Account(httpClient);
+      this._models = new Models(httpClient);
+      this._account = new Account(httpClient);
     }
+  }
+
+  get models(){
+    if(!this.isInitialized){
+      throw new Error(`GetImg Service is not initialized`);
+    }
+    return this._models;
+  }
+
+  get account(){
+    if(!this.isInitialized){
+      throw new Error(`GetImg Service is not initialized`);
+    }
+    return this._account;
   }
 
   listAllModel(params: ListAllModelsParams) {
