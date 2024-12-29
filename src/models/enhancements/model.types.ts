@@ -9,7 +9,7 @@ export type EnhancementsUpscaleParams = Omit<BaseModelParams, 'prompt'> & {
   model?: string;
   /**
    * Base64 encoded image that will be upscaled.
-   * 
+   *
    * Maximum size in each dimension is 1024px.
    */
   image: string;
@@ -20,11 +20,11 @@ export type EnhancementsFixFacesParams = BaseModelParams & {
   model?: string;
   /**
    * Base64 encoded image that will be upscaled.
-   * 
+   *
    * Maximum size in each dimension is 1024px.
    */
   image: string;
-}
+};
 
 export interface IEnhancements {
   upscale: (

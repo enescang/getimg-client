@@ -4,7 +4,7 @@ import { BaseModelParams, ImageOrUrl } from '../model.types';
 export type LatentConsistencyGeneralResponse = ImageOrUrl & {
   seed?: number;
   cost?: number;
-}
+};
 
 export type LatentConsistencyTextToImageParams = BaseModelParams & {
   model?: string;
@@ -20,14 +20,14 @@ export type LatentConsistencyImageToImageParams = BaseModelParams & {
   negative_prompt?: string;
   /**
    * Base64 encoded image that will be used as the a starting point for the generation.
-   * 
+   *
    * Maximum size in each dimension is 1024px.
    */
   image: string;
   strength?: string;
   steps?: number;
   seed?: number;
-}
+};
 
 export interface ILatentConsistency {
   textToImage: (

@@ -1,3 +1,4 @@
+import { Account } from '../account';
 import { Models } from '../models';
 import {
   BaseConfig,
@@ -13,6 +14,7 @@ export class GetimgService {
   private httpClient: HttpClient;
 
   models: Models;
+  account: Account;
 
   constructor(params: Partial<BaseConfig>) {
     this.initializeModels(params);
@@ -35,6 +37,7 @@ export class GetimgService {
       });
       this.httpClient = httpClient;
       this.models = new Models(httpClient);
+      this.account = new Account(httpClient);
     }
   }
 
