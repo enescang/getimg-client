@@ -28,7 +28,7 @@ npm install getimg-client
 To set up the client, configure it with your API key. Optionally, you can override the default API endpoint.
 
 ```typescript
-import getimg from 'getimg-client';
+import { getimg } from 'getimg-client';
 
 getimg.config({ key: 'YOUR_GETIMG_KEY' });
 
