@@ -14,8 +14,8 @@ export class GetimgService {
   private httpClient: HttpClient;
   private isInitialized = false;
 
-  _models: Models;
-  _account: Account;
+  private _models: Models;
+  private _account: Account;
 
   constructor(params: Partial<BaseConfig>) {
     this.baseConfig = {} as BaseConfig;
@@ -44,21 +44,17 @@ export class GetimgService {
     }
   }
 
-  get models(){
-    if(!this.isInitialized){
-      throw new Error(`GetImg Service is not initialized`);
-    }
+  get models() {
+    this.checkInitializeStatus();
     return this._models;
   }
 
-  get account(){
-    if(!this.isInitialized){
-      throw new Error(`GetImg Service is not initialized`);
-    }
+  get account() {
+    this.checkInitializeStatus();
     return this._account;
   }
 
-  listAllModel(params: ListAllModelsParams) {
+  listAllModels(params?: ListAllModelsParams) {
     const path = `/models`;
     return this.httpClient.get<ListAllModelsResponse>(path, params);
   }
@@ -66,5 +62,28 @@ export class GetimgService {
   retrieveModel(params: RetrieveModelParams) {
     const path = `/models/${params.id}`;
     return this.httpClient.get<RetrieveModelResponse>(path);
+  }
+
+  private checkInitializeStatus() {
+    if (!this.isInitialized) {
+      // Check if the API URL or Authorization Key is missing
+      if (!this.baseConfig?.api) {
+        console.error('API URL is missing. Use getimg.config({ api: "YOUR_API_URL" }); to set it.');
+        throw new Error('GetImg Service Initialization Error: API URL is required.');
+      }
+
+      if (!this.baseConfig?.key) {
+        console.error(
+          'Authorization key is missing. Use getimg.config({ key: "YOUR_API_KEY" }); to set it.',
+        );
+        throw new Error('GetImg Service Initialization Error: API key is required.');
+      }
+
+      // Catch-all for any unhandled errors
+      console.error('Unhandled error. Please create an issue on GitHub.');
+      throw new Error('GetImg Service Initialization Error: Unhandled case.');
+    }
+
+    return true;
   }
 }

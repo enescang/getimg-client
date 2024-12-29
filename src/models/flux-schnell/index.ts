@@ -15,7 +15,7 @@ export class FluxSchnell implements IBaseModel, IFluxSchnell {
     return `flux-schnell`;
   }
 
-  async textToImage(params: FluxSchnellTextToImageParams) {
+  textToImage(params: FluxSchnellTextToImageParams) {
     const path = `${this.getModelName()}/text-to-image`;
     return this.httpClient.post<FluxSchnellTextToImageResponse>(path, params);
   }

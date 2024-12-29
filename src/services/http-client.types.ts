@@ -1,6 +1,6 @@
 type GenericResponseType<T, T2> = {
-  data: T;
-  error: T2;
+  data?: T;
+  error?: T2;
 };
 
 export type BaseModelErrorResponse = {
@@ -11,4 +11,4 @@ export type BaseModelErrorResponse = {
   doc_url?: string;
 };
 
-export type HttpClientResponseType<T> = GenericResponseType<T, BaseModelErrorResponse>;
+export type HttpClientResponseType<T> = Promise<GenericResponseType<T, BaseModelErrorResponse>>;

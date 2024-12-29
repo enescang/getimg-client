@@ -30,9 +30,9 @@ export class HttpClient {
     }
   }
 
-  private handleErrorResponse(data:AxiosError){
+  private handleErrorResponse(data: AxiosError) {
     const responseData = data?.response?.data as any;
-    if(responseData?.error){
+    if (responseData?.error) {
       return responseData?.error;
     }
     return responseData;
