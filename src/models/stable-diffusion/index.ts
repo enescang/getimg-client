@@ -10,6 +10,7 @@ import {
   StableDiffusionInstructParams,
 } from './model.types';
 
+/** @deprecated This is a legacy endpoint. */
 export class StableDiffusion implements IBaseModel, IStableDiffusion {
   constructor(private readonly httpClient: HttpClient) {
     this.httpClient = httpClient;

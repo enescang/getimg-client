@@ -7,6 +7,7 @@ import {
   EnhancementsFixFacesParams,
 } from './model.types';
 
+/** @deprecated This is a legacy endpoint. */
 export class Enhancements implements IBaseModel, IEnhancements {
   constructor(private readonly httpClient: HttpClient) {
     this.httpClient = httpClient;

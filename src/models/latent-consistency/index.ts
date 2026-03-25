@@ -7,6 +7,7 @@ import {
   LatentConsistencyTextToImageParams,
 } from './model.types';
 
+/** @deprecated This is a legacy endpoint. */
 export class LatentConsistency implements IBaseModel, ILatentConsistency {
   constructor(private readonly httpClient: HttpClient) {
     this.httpClient = httpClient;

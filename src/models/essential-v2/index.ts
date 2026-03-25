@@ -6,6 +6,7 @@ import {
   EssentialV2TextToImageResponse,
 } from './model.types';
 
+/** @deprecated This is a legacy endpoint. */
 export class EssentialV2 implements IBaseModel, IEssentialV2 {
   constructor(private readonly httpClient: HttpClient) {
     this.httpClient = httpClient;

@@ -9,6 +9,7 @@ import {
   StableDiffusionXLIpAdapterParams,
 } from './model.types';
 
+/** @deprecated This is a legacy endpoint. */
 export class StableDiffusionXL implements IBaseModel, IStableDiffusionXL {
   constructor(private readonly httpClient: HttpClient) {
     this.httpClient = httpClient;

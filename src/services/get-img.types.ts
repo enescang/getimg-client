@@ -13,7 +13,14 @@ type ModelPipelines =
   | 'upscale'
   | 'face-fix';
 export type ListAllModelsParams = {
-  family?: 'stable-diffusion' | 'enhancements';
+  family?:
+    | 'seedream-v4'
+    | 'flux-schnell'
+    | 'stable-diffusion'
+    | 'stable-diffusion-xl'
+    | 'essential-v2'
+    | 'latent-consistency'
+    | 'enhancements';
   pipeline?: ModelPipelines;
 };
 
