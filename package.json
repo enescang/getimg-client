@@ -1,6 +1,6 @@
 {
   "name": "getimg-client",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "getimg.ai JS Client",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
